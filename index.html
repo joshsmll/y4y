@@ -1,732 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Youth 4 Youth Gala</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
-    html, body {
-      width: 100vw;
-      max-width: 100vw;
-      overflow-x: hidden;
-      background: #f9f7f1;
-      color: #222;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-size: 16px;
+    :root {
+      --gold: #b1996f;
+      --gold-light: #cdc6a3;
+      --gold-dark: #7e744e;
+      --cream: #f9f7f1;
+      --cream-dark: #ede7d6;
+      --text-dark: #3a3320;
+      --text-medium: #5f573f;
+      --text-light: #7d7762;
     }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
+    
+    /* Base Styles */
+    * {
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      box-sizing: border-box;
     }
-
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
-      font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-      line-height: 1.75;
-      letter-spacing: 0.02em;
-      background-image:
-        radial-gradient(circle at 15% 25%, #e8dec9 2%, transparent 10%),
-        radial-gradient(circle at 85% 75%, #b1996f 3%, transparent 12%);
-      background-repeat: no-repeat;
-      background-size: 1400px 1200px;
-      background-attachment: fixed;
-      background-position: center;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-medium);
+      background-color: var(--cream);
+      line-height: 1.7;
+      padding-top: 80px;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(232, 222, 201, 0.3) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(177, 153, 111, 0.2) 0%, transparent 25%);
     }
-
-    main, section {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    /* Header */
-    header {
-      background: #fff;
-      padding: 7rem 2rem 6rem;
-      text-align: center;
-      border-bottom: 2px solid #cdc6a3;
+    
+    h1, h2, h3, h4 {
       font-family: 'Cormorant Garamond', serif;
-      color: #3a3320;
-      animation: fadeInDown 1s ease forwards;
-      opacity: 0;
-      position: relative;
-      z-index: 10;
-      box-shadow: 1px 2px 8px rgba(162, 148, 113, 0.25);
-      border-radius: 12px;
-      max-width: 1020px;
-      margin: 0 auto 3.5rem;
-      user-select: none;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.2;
     }
-
-    header h1 {
-      font-weight: 700;
-      font-size: clamp(3rem, 6vw, 5rem);
-      line-height: 1.05;
-      max-width: 14ch;
+    
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 15px rgba(58, 51, 32, 0.1);
+      z-index: 1000;
+      border-bottom: 1px solid var(--gold-light);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
       margin: 0 auto;
-      animation: letterSpacing 3s ease-in-out infinite alternate;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      color: #3a3320;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
-    /* Marquee */
-    .marquee {
-      background: #ede7d6;
-      height: 4rem;
-      overflow: hidden;
-      border-top: 2px solid #cdc6a3;
-      border-bottom: 2px solid #cdc6a3;
-      margin: 0 0 5rem 0;
+    
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    
+    .nav-links a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--text-medium);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold-dark);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Banner */
+    .hero {
+      height: 90vh;
+      min-height: 700px;
       display: flex;
       align-items: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #7e744e;
-      letter-spacing: 0.12em;
-      font-family: 'Cormorant Garamond', serif;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(58, 51, 32, 0.4), rgba(58, 51, 32, 0.4)), 
+                  url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover no-repeat;
+      margin-bottom: 5rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+    
+    .hero h1 {
+      font-size: 4.5rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      animation: wave 6s ease-in-out infinite;
-      box-shadow: inset 0 6px 14px #f6f4eb;
-      user-select: none;
-      max-width: 1100px;
+      color: white;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero p {
+      font-size: 1.4rem;
+      color: white;
+      margin-bottom: 3rem;
+      max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-      border-radius: 8px;
     }
-
-    .marquee-content {
-      display: flex;
-      animation: scroll 26s linear infinite;
-      white-space: nowrap;
-    }
-
-    .marquee-content span {
-      padding-right: 9rem;
-      font-variant: small-caps;
-    }
-
-    /* Sections Container */
-    .container {
-      max-width: 1150px;
-      margin: 0 auto 6rem;
-      padding: 0 2rem;
-    }
-
-    /* Cards Section */
-    .split-section {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 18px 44px rgba(92, 82, 61, 0.15);
-      max-width: 420px;
-      flex: 1 1 320px;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.4s ease, transform 0.4s ease;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeSlideIn 0.85s ease forwards;
-      border: 1.5px solid transparent;
-      user-select: none;
-      background-image: linear-gradient(white, white), radial-gradient(circle at top left, #c6b583, #b1996f);
-      background-origin: border-box;
-      background-clip: content-box, border-box;
-    }
-    .card:nth-child(1) { animation-delay: 0.25s; }
-    .card:nth-child(2) { animation-delay: 0.5s; }
-    .card:nth-child(3) { animation-delay: 0.75s; }
-    .card:nth-child(4) { animation-delay: 1s; }
-    .card:nth-child(5) { animation-delay: 1.25s; }
-
-    .card:hover, .card:focus-within {
-      box-shadow: 0 22px 56px rgba(92, 82, 61, 0.32);
-      transform: translateY(-10px) scale(1.07);
-      border-color: #b1996f;
-      outline: none;
-      z-index: 5;
-    }
-
-    .card img {
-      border-top-left-radius: 18px;
-      border-top-right-radius: 18px;
-      width: 100%;
-      object-fit: cover;
-      aspect-ratio: 16 / 9;
-      transition: transform 0.65s ease, filter 0.65s ease;
-      filter: brightness(0.93);
-      box-shadow: inset 0 -15px 30px -10px rgba(177, 153, 111, 0.42);
-    }
-
-    .card:hover img, .card:focus-within img {
-      transform: scale(1.12);
-      filter: brightness(1);
-      box-shadow: none;
-    }
-
-    .card-content {
-      padding: 3rem 3rem 3.5rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card-content h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      font-size: 2.2rem;
-      color: #493f23;
-      margin-bottom: 1.4rem;
-      animation: fadePop 0.7s ease forwards;
-      opacity: 0;
-      text-transform: capitalize;
-      letter-spacing: 0.07em;
-      text-shadow: 1px 1px 1px rgba(0,0,0,0.03);
-      user-select: text;
-    }
-
-    .card-content p {
-      color: #6d6958;
-      font-size: 1.1rem;
-      line-height: 1.68;
-      margin-bottom: 2.4rem;
-      flex-grow: 1;
-      opacity: 0.95;
-      transition: opacity 0.4s ease;
-      font-weight: 520;
-      user-select: text;
-    }
-
-    .card:hover .card-content p, 
-    .card:focus-within .card-content p {
-      opacity: 1;
-    }
-
-    .card-buttons button {
-      align-self: flex-start;
-      padding: 0.95rem 2.8rem;
-      border: 2px solid #a68c51;
-      background: transparent;
-      color: #a68c51;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 32px;
-      cursor: pointer;
-      transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      box-shadow: inset 0 0 0 0 #a68c51;
-      user-select: none;
-    }
-
-    .card-buttons button:hover, 
-    .card-buttons button:focus {
-      background-color: #a68c51;
-      color: #faf7f3;
-      box-shadow: inset 140px 0 0 0 #a68c51;
-      transform: scale(1.12);
-      outline: none;
-    }
-
-    /* Donate Button Style */
-    .donate-button {
-      background-color: #b1996f;
-      color: #faf7f3;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      padding: 1.2rem 3.8rem;
-      border: none;
-      border-radius: 38px;
-      cursor: pointer;
-      transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      box-shadow: 0 8px 22px rgba(177, 153, 111, 0.85);
-      margin: 3rem auto 0;
-      display: block;
-      max-width: 240px;
-      animation: pulseGlow 3s ease-in-out infinite;
-      user-select: none;
-      text-shadow: 0 0 6px rgba(255 255 255 / 0.2);
-    }
-
-    .donate-button:hover, .donate-button:focus {
-      background-color: #a08250;
-      box-shadow: 0 10px 28px rgba(160, 130, 80, 1);
-      transform: scale(1.15);
-      animation-play-state: paused;
-      outline: none;
-    }
-
-    /* Founders Section */
-    .founders {
-      max-width: 900px;
-      margin: 0 auto 8rem;
-      padding: 0 2.5rem 5rem;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      color: #443e2d;
-      opacity: 0;
-      animation: fadeInUp 1.3s ease forwards;
-      animation-delay: 1.2s;
-      letter-spacing: 0.04em;
-      background: #fff9f1;
-      border-radius: 18px;
-      box-shadow: 0 14px 36px rgba(144, 126, 94, 0.22);
-      border: 1.5px solid #d5cdb7;
-      user-select: none;
-    }
-
-    .founders h2 {
-      font-size: clamp(2.75rem, 5vw, 3.6rem);
-      font-weight: 700;
-      margin-bottom: 4rem;
-      letter-spacing: 0.12em;
-      color: #3b3529;
-      text-transform: uppercase;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.07);
-    }
-
-    .founder-bio {
-      font-size: 1.22rem;
-      color: #584f3a;
-      max-width: 660px;
-      margin: 0 auto 4rem;
-      line-height: 1.85;
-      user-select: text;
-      font-weight: 520;
-      border-left: 6px solid #b1996f;
-      padding-left: 1.7rem;
-      background: #fffbf0;
-      border-radius: 10px;
-      box-shadow: inset 4px 0 6px rgba(177, 153, 111, 0.25);
-      transition: box-shadow 0.4s ease;
-    }
-
-    .founder-bio:hover,
-    .founder-bio:focus-within {
-      box-shadow: inset 8px 0 12px rgba(177, 153, 111, 0.45);
-      outline: none;
-    }
-
-    .founder-bio strong {
-      display: block;
-      font-weight: 700;
-      font-size: 1.45rem;
-      margin-bottom: 0.6rem;
-      color: #3a3223;
-      letter-spacing: 0.07em;
-      user-select: text;
-      text-shadow: 0 0 2px rgba(0,0,0,0.02);
-    }
-
-    .founder-bio strong:nth-child(2) {
-      font-weight: 600;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: #7f755e;
-      margin-bottom: 1.3rem;
-      letter-spacing: 0.045em;
-      user-select: text;
-    }
-
-    .founders button {
+    
+    .btn {
+      display: inline-block;
       padding: 1rem 2.5rem;
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
-      font-weight: 700;
-      color: white;
-      background-color: #b1996f;
-      border: none;
-      border-radius: 38px;
-      cursor: pointer;
-      transition: background-color 0.35s ease, filter 0.35s ease, transform 0.35s ease;
-      box-shadow: 0 6px 18px rgba(177, 153, 111, 0.8);
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      user-select: none;
-      margin-top: 1rem;
-      max-width: 260px;
-      display: inline-block;
-      text-shadow: 0 0 5px rgba(255 255 255 / 0.25);
-    }
-
-    .founders button:hover,
-    .founders button:focus {
-      background-color: #a08961;
-      filter: drop-shadow(0 0 8px rgba(160, 130, 80, 0.9));
-      transform: scale(1.07);
-      outline: none;
-    }
-
-    /* As Seen In Section */
-    .as-seen-in {
-      max-width: 900px;
-      margin: 0 auto 6.5rem;
-      padding: 3.2rem 2.5rem 4rem;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      color: #5f573f;
-      opacity: 0;
-      animation: fadeInUp 1.1s ease forwards;
-      animation-delay: 1.25s;
-      background: #fffcf6;
-      border-radius: 18px;
-      box-shadow: 0 14px 36px rgba(180, 166, 128, 0.18);
-      border: 1.5px solid #ddd7bf;
-      user-select: none;
-      letter-spacing: 0.06em;
-    }
-
-    .as-seen-in h2 {
-      font-size: clamp(3rem, 6vw, 3.5rem);
-      font-weight: 700;
-      margin-bottom: 4rem;
-      letter-spacing: 0.14em;
-      color: #564f3a;
-      text-transform: uppercase;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      user-select: none;
-    }
-
-    .media-logos {
-      display: flex;
-      justify-content: center;
-      gap: 5rem;
-      flex-wrap: wrap;
-      filter: grayscale(90%);
-      transition: filter 0.5s ease;
-      user-select: none;
-      padding: 0 1rem;
-    }
-
-    .media-logos:hover {
-      filter: grayscale(0%);
-    }
-
-    .media-logos a {
-      display: inline-block;
-      max-width: 140px;
-      transition: transform 0.5s ease, filter 0.5s ease;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
       cursor: pointer;
-      filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
-      will-change: transform;
+    }
+    
+    .btn-primary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-primary:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+    
+    /* Marquee */
+    .marquee {
+      background: var(--cream-dark);
+      height: 5rem;
+      overflow: hidden;
+      border-top: 1px solid var(--gold-light);
+      border-bottom: 1px solid var(--gold-light);
+      margin: 0 auto 6rem;
+      display: flex;
+      align-items: center;
+      max-width: 1100px;
       border-radius: 8px;
+      box-shadow: inset 0 5px 15px rgba(177, 153, 111, 0.1);
     }
-
-    .media-logos a:hover,
-    .media-logos a:focus {
-      transform: scale(1.3) translateY(-6px);
-      outline: none;
-      filter: none;
-      box-shadow: 0 12px 24px rgba(177, 153, 111, 0.45);
-      border-radius: 10px;
-      background: #fffaf5;
-      user-select: none;
+    
+    .marquee-content {
+      display: flex;
+      animation: scroll 30s linear infinite;
+      white-space: nowrap;
     }
-
-    .media-logos img {
-      max-width: 100%;
-      height: auto;
-      user-select: none;
-      pointer-events: none;
-      filter: drop-shadow(0 4px 3px rgba(0,0,0,0.09));
-      transition: filter 0.35s ease;
-      border-radius: 6px;
+    
+    .marquee-content span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      letter-spacing: 0.1em;
+      padding-right: 10rem;
+      text-transform: uppercase;
     }
-
-    @media (max-width: 768px) {
-      .media-logos {
-        gap: 3.5rem;
-      }
-
-      .media-logos a {
-        max-width: 110px;
-      }
+    
+    /* Section Styles */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      margin-bottom: 8rem;
     }
-
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    
+    .section-header h2 {
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+    }
+    
+    .section-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+    
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(92, 82, 61, 0.15);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(92, 82, 61, 0.25);
+    }
+    
+    .card-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    
+    .card-content {
+      padding: 2.5rem;
+    }
+    
+    .card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    
+    .card p {
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    
+    .card .btn {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    
+    .btn-outline:hover {
+      background: var(--gold);
+      color: white;
+    }
+    
+    /* Founders Section */
+    .founders {
+      background: white;
+      padding: 6rem 4rem;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(144, 126, 94, 0.1);
+      border: 1px solid var(--cream-dark);
+      max-width: 1000px;
+      margin: 0 auto 8rem;
+    }
+    
+    .founder-profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+    
+    .founder-card {
+      background: var(--cream);
+      padding: 2.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--gold);
+    }
+    
+    .founder-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .founder-card .title {
+      font-style: italic;
+      color: var(--gold-dark);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: white;
+      padding: 6rem 4rem;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(144, 126, 94, 0.1);
+      border: 1px solid var(--cream-dark);
+      max-width: 1000px;
+      margin: 0 auto 8rem;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+    
+    .contact-card {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .contact-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-card a {
+      color: var(--gold-dark);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-card a:hover {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+    
     /* Footer */
     footer {
-      background: #fff;
-      border-top: 2px solid #cdc6a4;
+      background: white;
+      padding: 4rem 2rem;
       text-align: center;
-      padding: 3rem 1rem;
-      font-size: 1.05rem;
-      color: #7d7762;
-      letter-spacing: 0.07em;
+      border-top: 1px solid var(--cream-dark);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: var(--text-medium);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+    
+    .copyright {
       font-family: 'Cormorant Garamond', serif;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 1.6s;
-      user-select: none;
-      box-shadow: inset 0 3px 8px #f9f7f1;
-      border-radius: 0 0 18px 18px;
-      max-width: 1020px;
-      margin: 0 auto 3rem;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
     }
-
+    
     /* Animations */
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-    }
-
-    @keyframes fadePop {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-      from {
-        opacity: 0;
-        transform: scale(0.87);
-      }
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 8px 22px rgba(177, 153, 111, 0.85);
-        transform: scale(1);
-      }
-      50% {
-        box-shadow: 0 14px 42px rgba(177, 153, 111, 1);
-        transform: scale(1.07);
-      }
-    }
-
     @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
       to {
         opacity: 1;
         transform: translateY(0);
       }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
+    }
+    
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
       }
     }
-
-    /* Responsive */
+    
     @media (max-width: 768px) {
-      header {
-        padding: 5rem 1.25rem 4.5rem;
-        max-width: 90vw;
+      body {
+        padding-top: 70px;
       }
-
-      header h1 {
-        font-size: 2.8rem;
-        max-width: 100%;
-        letter-spacing: 0.12em;
-      }
-
-      .marquee {
-        max-width: 95vw;
-        font-size: 1rem;
-      }
-
-      .marquee-content span {
-        padding-right: 6rem;
-      }
-
-      .container {
-        padding: 0 1rem;
-      }
-
-      .split-section {
-        gap: 1.8rem;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .card {
-        max-width: 90vw;
-        flex: unset;
-      }
-
-      .card-content h3 {
-        font-size: 1.75rem;
-      }
-
-      .founders {
-        margin-bottom: 5rem;
-        padding: 2rem 1.5rem 4rem;
-        border-radius: 14px;
-      }
-
-      .founder-bio {
-        font-size: 1rem;
-        max-width: 100%;
+      
+      .nav-container {
         padding: 1rem;
-        margin-bottom: 3rem;
       }
-
-      .founders button {
-        width: 100%;
-        max-width: none;
+      
+      .nav-links {
+        gap: 1.5rem;
       }
-
-      .as-seen-in {
-        padding: 2rem 1rem 3rem;
-        border-radius: 14px;
+      
+      .hero {
+        height: 80vh;
+        min-height: 600px;
+        margin-bottom: 4rem;
       }
-
-      .media-logos {
-        gap: 2.8rem;
+      
+      .hero h1 {
+        font-size: 2.8rem;
       }
-
-      .media-logos a {
-        max-width: 90px;
+      
+      .section-header h2 {
+        font-size: 2.5rem;
       }
-
-      footer {
-        max-width: 95vw;
-        font-size: 0.95rem;
-        border-radius: 0;
+      
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .founders, .contact {
+        padding: 4rem 2rem;
+      }
+      
+      .founder-profiles, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .nav-links {
+        gap: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
   <header>
-    <h1>Our Past Galas</h1>
+    <div class="nav-container">
+      <a href="#" class="logo">Y4Y Gala</a>
+      <nav class="nav-links">
+        <a href="#past-galas">Past Galas</a>
+        <a href="#founders">Founders</a>
+        <a href="#upcoming">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="marquee" aria-label="Scrolling highlights">
-    <div class="marquee-content" aria-hidden="true">
-      <span> Dinner • Hospitality • Over $50k Raised • Cocktails • Music • Kindness • Care </span>
-      <span> Dinner • Hospitality • Over $50k Raised • Cocktails • Music • Kindness • Care </span>
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Youth 4 Youth Gala</h1>
+      <p>Elegant fundraising events creating meaningful change through youth leadership</p>
+      <a href="#past-galas" class="btn btn-primary">Explore Our Work</a>
     </div>
-  </div>
+  </section>
 
-  <div class="container">
-    <section class="split-section" aria-label="Past Gala highlights">
-      <article class="card" tabindex="0">
-        <img src="https://i.imgur.com/U0Hnbub.jpeg" alt="Y4Y Gala 2025 Edition" loading="lazy" />
+  <!-- Past Galas Section -->
+  <section id="past-galas" class="section">
+    <div class="section-header">
+      <h2>Our Past Galas</h2>
+      <p>Celebrating our journey of creating impactful fundraising events</p>
+    </div>
+    
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-content">
+        <span>Dinner • Hospitality • $50k Raised • Cocktails • Music • Kindness • Care</span>
+        <span>Dinner • Hospitality • $50k Raised • Cocktails • Music • Kindness • Care</span>
+      </div>
+    </div>
+    
+    <div class="cards-grid">
+      <article class="card">
+        <img src="https://i.imgur.com/U0Hnbub.jpeg" alt="Y4Y Gala 2025" class="card-img">
         <div class="card-content">
-          <h3>Y4Y Gala 2025 Edition</h3>
-          <p>A night of elegance, refinement and heart — for the Ronald McDonald House NY, in a beautiful Wall Street Ballroom.</p>
-          <div class="card-buttons">
-            <button type="button" aria-label="View Archives of Y4Y Gala 2025 Edition">View Archives</button>
-          </div>
+          <h3>Y4Y Gala 2025</h3>
+          <p>A night of elegance and heart at a Wall Street ballroom, benefiting Ronald McDonald House NY.</p>
+          <a href="#" class="btn btn-outline">View Archives</a>
         </div>
       </article>
-
-      <article class="card" tabindex="0">
-        <img src="https://i.imgur.com/gxCOUha.jpeg" alt="Y4Y Social 2024 Edition" loading="lazy" />
+      
+      <article class="card">
+        <img src="https://i.imgur.com/gxCOUha.jpeg" alt="Y4Y Social 2024" class="card-img">
         <div class="card-content">
-          <h3>Y4Y Social 2024 Edition</h3>
-          <p>A gourmet, intimate and bespoke dinner, in a cozy townhouse in Harlem.</p>
-          <div class="card-buttons">
-            <button type="button" aria-label="View Archives of Y4Y Social 2024 Edition">View Archives</button>
-          </div>
+          <h3>Y4Y Social 2024</h3>
+          <p>An intimate gourmet dinner in a Harlem townhouse, fostering community connections.</p>
+          <a href="#" class="btn btn-outline">View Archives</a>
         </div>
       </article>
-    </section>
+    </div>
+  </section>
 
-    <section class="founders" aria-label="Founders information">
-      <h2>About the Co-Founders</h2>
-      <div class="founder-bio" tabindex="0">
-        <strong>Joshua Small</strong>
-        <strong>Culinary Director + Co-Organizer</strong>
-        Josh is a 16 year old young chef and entrepreneur. With a passion for international cuisine, he's focused on creating trendy yet approachable dining experiences that blend high-end techniques as well as local ingredients. Josh has been fundraising for over 4 years. Out of the kitchen Josh is an avid runner and is half french. He's also an avid mixologist. He goes to school at the Lycée Français de New York, and spends his time in between NYC and the Catskills. 
+  <!-- Founders Section -->
+  <section id="founders" class="section">
+    <div class="founders">
+      <div class="section-header">
+        <h2>Meet Our Founders</h2>
+        <p>The passionate youth leaders behind our initiatives</p>
       </div>
-      <div class="founder-bio" tabindex="0">
-        <strong>Alexander Morris</strong>
-        <strong>Front of House Director + Co-Organizer</strong>
-        Alexander is a dynamic 16 year old Youth event organizer and planner, with a passion for hospitality and crafting memorable and inclusive experiences. He has previously volunteered and served on the Youth Advisory Boards of various non profits including the Ronald McDonald House New York and the Billion Oyster Project. He currently attends Léman Prep High School, and is fluent in French and Spanish, as well as on the Varsity Basketball and Tennis teams. 
+      
+      <div class="founder-profiles">
+        <div class="founder-card">
+          <h3>Joshua Small</h3>
+          <span class="title">Culinary Director & Co-Founder</span>
+          <p>16-year-old chef creating international dining experiences. Fundraiser for 4+ years. Student at Lycée Français de New York.</p>
+        </div>
+        
+        <div class="founder-card">
+          <h3>Alexander Morris</h3>
+          <span class="title">Hospitality Director & Co-Founder</span>
+          <p>16-year-old event planner specializing in inclusive experiences. Fluent in French/Spanish. Varsity athlete at Léman Prep.</p>
+        </div>
+        
+        <div class="founder-card">
+          <h3>Sophia Chen</h3>
+          <span class="title">Creative Director & Co-Founder</span>
+          <p>Visual storyteller handling branding and decor. Award-winning photographer. Student at LaGuardia Arts High School.</p>
+        </div>
       </div>
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <button onmouseover="this.style.backgroundColor='#a08961'" onmouseout="this.style.backgroundColor='#b1996f'" aria-label="Meet all founders">Meet All Founders</button>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="split-section" id="upcoming-projects" aria-label="Upcoming Projects">
+  <!-- Upcoming Projects -->
+  <section id="upcoming" class="section">
+    <div class="section-header">
       <h2>Upcoming Projects</h2>
-      <div class="card">
-        <img src="images/community-cooking.jpg" alt="Community Cooking Workshop" />
+      <p>Our current initiatives making a difference in the community</p>
+    </div>
+    
+    <div class="cards-grid">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cooking Workshop" class="card-img">
         <div class="card-content">
-          <h3>Community Cooking Workshop</h3>
-          <p>
-            This fall, we're launching hands-on cooking classes for local teens, teaching accessible, nutritious meals while building confidence in the kitchen.
-          </p>
-          <div class="card-buttons">
-            <button onclick="location.href='#'" aria-label="Learn more about Community Cooking Workshop">Learn More</button>
-          </div>
+          <h3>Community Cooking</h3>
+          <p>Hands-on classes teaching teens to prepare nutritious meals while building kitchen confidence.</p>
+          <a href="#" class="btn btn-outline">Learn More</a>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="images/holiday-gift-drive.jpg" alt="Holiday Gift Drive" />
+      </article>
+      
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1578916170148-e8fa48462e7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80" alt="Gift Drive" class="card-img">
         <div class="card-content">
           <h3>Holiday Gift Drive</h3>
-          <p>
-            Help us collect and deliver personalized holiday gifts to over 300 children living in shelters across New York City this December.
-          </p>
-          <div class="card-buttons">
-            <button onclick="location.href='#'" aria-label="Get involved in Holiday Gift Drive">Get Involved</button>
-          </div>
+          <p>Delivering personalized gifts to 300+ children in NYC shelters this December.</p>
+          <a href="#" class="btn btn-outline">Get Involved</a>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="images/summer-program.jpg" alt="Youth Summer Program" />
+      </article>
+      
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Leadership Program" class="card-img">
         <div class="card-content">
-          <h3>Youth Leadership Program</h3>
-          <p>
-            Our 2025 summer initiative brings together young changemakers for a week of mentorship, service, and leadership-building in NYC.
-          </p>
-          <div class="card-buttons">
-            <button onclick="location.href='#'" aria-label="Join Youth Leadership Program">Join Us</button>
-          </div>
+          <h3>Youth Leadership</h3>
+          <p>Summer 2025 program for young changemakers featuring mentorship and service.</p>
+          <a href="#" class="btn btn-outline">Join Us</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="contact">
+      <div class="section-header">
+        <h2>Contact Us</h2>
+        <p>Get in touch to support our mission or learn more</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <h3>Email</h3>
+          <a href="mailto:hello@youth4youth.org">hello@youth4youth.org</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <h3>Social Media</h3>
+          <a href="#">@youth4youthgala</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <h3>Phone</h3>
+          <a href="tel:+12125551234">(212) 555-1234</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="as-seen-in" aria-label="As Seen In media mentions">
-      <h2>As Seen In</h2>
-      <div class="media-logos" role="list">
-        <a href="https://www.nytimes.com" target="_blank" rel="noopener" role="listitem" tabindex="0" aria-label="New York Times">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg" alt="The New York Times logo" loading="lazy" />
-        </a>
-        <a href="https://www.forbes.com" target="_blank" rel="noopener" role="listitem" tabindex="0" aria-label="Forbes">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Forbes_logo.svg" alt="Forbes logo" loading="lazy" />
-        </a>
-        <a href="https://www.nbcnews.com" target="_blank" rel="noopener" role="listitem" tabindex="0" aria-label="NBC News">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/NBC_logo.svg" alt="NBC News logo" loading="lazy" />
-        </a>
-        <a href="https://www.bbc.com" target="_blank" rel="noopener" role="listitem" tabindex="0" aria-label="BBC">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/BBC_logo_%282017%29.svg" alt="BBC logo" loading="lazy" />
-        </a>
-      </div>
-    </section>
-  </div>
-
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Youth 4 Youth Gala. All rights reserved.
+    <div class="footer-links">
+      <a href="#past-galas">Past Galas</a>
+      <a href="#founders">Founders</a>
+      <a href="#upcoming">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p class="copyright">© 2025 Youth 4 Youth Gala. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-
-
