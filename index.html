@@ -1159,7 +1159,7 @@ gap: 2rem;
 <article class="card">
 <div class="mailing-list-form">
 <h3>Join Our Mailing List</h3>
-<form id="mailing-list-form">
+<form id="simple-form">
 <div class="form-group">
 <label for="name">Name</label>
 <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
@@ -1190,7 +1190,7 @@ gap: 2rem;
 </div>
 <div>
 <h3>Our Location</h3>
-<p>New York City, NY</p>
+<p>New York City</p>
 </div>
 </div>
 <div class="contact-item">
@@ -1199,7 +1199,7 @@ gap: 2rem;
 </div>
 <div>
 <h3>Email Us</h3>
-<p>info@youth4youth.org</p>
+<p>Founders@y4ynyc.com</p>
 </div>
 </div>
 </div>
@@ -1323,6 +1323,31 @@ gap: 2rem;
           });
         });
       });
+    });
+
+    // Mailing List Form Submission
+    document.getElementById('simple-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        email: form.email.value
+      };
+
+      fetch(
+        'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
+        {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }
+      );
+
+      alert('Submitted!');
+      form.reset();
     });
   </script>
 </body>
