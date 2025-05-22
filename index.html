@@ -1484,15 +1484,26 @@ border-radius: 2px;
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value;
 
-        // Create mailto link
-        const mailSubject = encodeURIComponent(`Contact Form Submission: ${subject}`);
-        const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:founders@y4ynyc.com?subject=${mailSubject}&body=${mailBody}`;
+        const data = {
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
+        };
 
-        // Open default email client
-        window.location.href = mailtoLink;
+        fetch(
+          'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
+          {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          }
+        );
 
-        // Reset form
+        alert('Submitted!');
         this.reset();
       });
 
