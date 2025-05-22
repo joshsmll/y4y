@@ -1477,26 +1477,35 @@ border-radius: 2px;
         });
 
       // Contact Form Submission
-      document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+<script>
+      document
+        .getElementById('simple-form')
+        .addEventListener('submit', function (e) {
+          e.preventDefault();
+          const form = e.target;
+          const data = {
+            name: form.name.value,
+            email: form.email.value,
+            subject: form.subject.value,
+            message: form.message.value 
+          };
 
-        const formData = new FormData(this);
-        const url = 'https://script.google.com/macros/s/AKfycbwk7DEx205eZvsDX071QAnMzHDmKk1hC31FdPtbvhYuvFdvV7bagPNgfPNp1aY4lX_iOw/exec';
+          fetch(
+            'https://script.google.com/macros/s/AKfycbw00AlLzay_PmxJHMuxWmVL_fnBDAgSjN2esgbFITw_YJ30v4ofYh1fyqT2a2xOt-Vi/exec',
+            {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            }
+          );
 
-        fetch(url, {
-          method: 'POST',
-          body: formData,
-        })
-        .then(response => response.text())
-        .then(result => {
-          document.getElementById('response').innerText = 'Form submitted successfully!';
-          document.getElementById('contact-form').reset();
-        })
-        .catch(error => {
-          document.getElementById('response').innerText = 'Error submitting form.';
-          console.error('Error:', error);
+          alert('Submitted!');
+          form.reset();
         });
-      });
+    </script>
 
       // Add hover effects to all cards
       document.querySelectorAll('.hover-scale').forEach(card => {
