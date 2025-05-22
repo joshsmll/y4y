@@ -143,7 +143,7 @@ width: 100%;
 
 /* Hero Section */
 .hero {
-height: 90vh;
+height: 100vh;
 min-height: 700px;
 background: linear-gradient(135deg, rgba(58, 134, 255, 0.9), rgba(131, 56, 236, 0.9)), url('https://i.imgur.com/fUaPzKe.jpeg') center/cover no-repeat;
 display: flex;
@@ -757,7 +757,7 @@ color: white;
 /* Hero with Background Image */
 .hero {
 position: relative;
-height: 90vh;
+height: 100vh;
 min-height: 700px;
 display: flex;
 align-items: center;
@@ -1183,6 +1183,51 @@ transform: scale(1.2);
     margin-top: 1rem;
 }
 
+/* Scroll Effects */
+.scroll-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-effect {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-effect.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-effect.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.scroll-effect.slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Founder Card Flip Animation */
 .founder-card {
   perspective: 1000px;
@@ -1217,42 +1262,6 @@ transform: scale(1.2);
 .founder-card-back {
   transform: rotateY(180deg);
   background-color: white;
-}
-
-/* Scroll Effects */
-.scroll-effect {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.scroll-effect.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scroll-effect.fade-in {
-  animation: fadeIn 1s ease forwards;
-}
-
-.scroll-effect.slide-up {
-  animation: slideUp 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Update the founder gallery styles */
@@ -1322,10 +1331,10 @@ transform: scale(1.2);
 </header>
 
 <!-- Hero Banner -->
-<section class="hero">
+<section class="hero scroll-section">
 <img src="https://i.imgur.com/fUaPzKe.jpeg" alt="Youth 4 Youth Background" class="hero-bg">
 <div class="hero-overlay"></div>
-<div class="hero-content">
+<div class="hero-content scroll-effect">
 <h1>Youth 4 Youth fundraising initiatives</h1>
 <p>Elegant events, bound together by one goal, empowering youth-oriented non-profits through food and hospitality.</p>
 <a href="#past-galas" class="btn btn-primary">Explore Our Past Work</a>
@@ -1333,8 +1342,8 @@ transform: scale(1.2);
 </section>
 
 <!-- Past Galas Section -->
-<section id="past-galas" class="section">
-<div class="section-header">
+<section id="past-galas" class="section scroll-section">
+<div class="section-header scroll-effect">
 <h2>Our Past Galas</h2>
 <p>A few examples of our most recent productions.</p>
 </div>
@@ -1345,7 +1354,7 @@ transform: scale(1.2);
 </div>
 </div>
 <div class="cards-grid">
-<article class="card hover-scale">
+<article class="card hover-scale scroll-effect">
 <div class="card-inner">
 <div class="card-front">
 <img src="https://i.imgur.com/CvlyctM.jpeg" alt="Y4Y Gala 2025" class="card-img">
@@ -1391,7 +1400,7 @@ transform: scale(1.2);
 </div>
 </article>
 
-<article class="card hover-scale">
+<article class="card hover-scale scroll-effect">
 <div class="card-inner">
 <div class="card-front">
 <img src="2560px-New_York_Post.svg.png" alt="Y4Y Social 2024" class="card-img">
@@ -1440,9 +1449,9 @@ transform: scale(1.2);
 </section>
 
 <!-- Founders Section -->
-<section id="founders" class="section">
+<section id="founders" class="section scroll-section">
 <div class="founders">
-<div class="section-header">
+<div class="section-header scroll-effect">
 <h2>Meet Our Founders</h2>
 <p>2 passionate collaborators, with a common goal of making the world a better place.</p>
 </div>
@@ -1619,33 +1628,33 @@ transform: scale(1.2);
 </section>
 
 <!-- As Seen In Section -->
-<section id="as-seen" class="section as-seen">
-<div class="section-header">
+<section id="as-seen" class="section scroll-section">
+<div class="section-header scroll-effect">
 <h2>As Seen In</h2>
 <p>Our initiatives have been featured in these respected publications.</p>
 </div>
 <div class="logos-container">
-<div class="logo-item hover-scale">
+<div class="logo-item hover-scale scroll-effect">
 <a href="https://nypost.com/2024/05/03/lifestyle/nyc-teen-hosts-6000-dinner-on-ues-for-kids-with-cancer/" target="_blank">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiz2TbCXAG6WsLFBjS_izRWT1OkD8gUS5z7w&s" alt="New York Post Logo">
 </a>
 </div>
-<div class="logo-item hover-scale">
+<div class="logo-item hover-scale scroll-effect">
 <a href="https://www.youtube.com/watch?v=68JtfvqCS-Q" target="_blank">
 <img src="https://logowik.com/content/uploads/images/cbs-news8651.jpg" alt="CBS News Logo">
 </a>
 </div>
-<div class="logo-item hover-scale">
+<div class="logo-item hover-scale scroll-effect">
 <a href="https://pix11.com/news/local-news/nyc-teens-set-100k-goal-for-childhood-cancer-charity-dinner/" target="_blank">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMumFG4yaTSiIC4KeT17L9XzlJe3hme4HizA&s" alt="Pix 11 News Logo">
 </a>
 </div>
-<div class="logo-item hover-scale">
+<div class="logo-item hover-scale scroll-effect">
 <a href="https://patch.com/new-york/upper-east-side-nyc/ues-teen-chef-cook-money-kids-cancer" target="_blank">
 <img src="https://brooklynactinglab.org/wp-content/uploads/2018/03/logo-patch-800x600.png" alt="Patch News Logo">
 </a>
 </div>
-<div class="logo-item hover-scale">
+<div class="logo-item hover-scale scroll-effect">
 <a href="https://www.yahoo.com/news/nyc-teens-set-100k-goal-180450555.html" target="_blank">
 <img src="https://seeklogo.com/images/Y/yahoo-news-logo-0A2C62B496-seeklogo.com.png" alt="Yahoo News Logo">
 </a>
@@ -1654,13 +1663,13 @@ transform: scale(1.2);
 </section>
 
 <!-- Upcoming Projects -->
-<section id="upcoming" class="section">
-<div class="section-header">
+<section id="upcoming" class="section scroll-section">
+<div class="section-header scroll-effect">
 <h2>Upcoming Projects</h2>
 <p>Check back soon for our upcoming initiatives. If you want to contact us or partner with us for co-fundraising or volunteering for future events, feel free to do so in our contact-us section!</p>
 </div>
 <div class="cards-grid">
-<article class="card hover-scale">
+<article class="card hover-scale scroll-effect">
 <div class="mailing-list-form">
 <h3>Join Our Mailing List</h3>
 <form id="simple-form">
@@ -1680,15 +1689,15 @@ transform: scale(1.2);
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="section" style="padding-top: 0;">
+<section id="contact" class="section scroll-section" style="padding-top: 0;">
 <div class="contact">
-<div class="section-header">
+<div class="section-header scroll-effect">
 <h2>Get In Touch</h2>
 <p>Have questions or want to collaborate? We'd love to hear from you!</p>
 </div>
 <div class="contact-grid">
 <div class="contact-info">
-<div class="contact-item hover-scale">
+<div class="contact-item hover-scale scroll-effect">
 <div class="contact-item-icon">
 <i class="fas fa-map-marker-alt"></i>
 </div>
@@ -1697,7 +1706,7 @@ transform: scale(1.2);
 <p>New York City</p>
 </div>
 </div>
-<div class="contact-item hover-scale">
+<div class="contact-item hover-scale scroll-effect">
 <div class="contact-item-icon">
 <i class="fas fa-envelope"></i>
 </div>
@@ -1707,7 +1716,7 @@ transform: scale(1.2);
 </div>
 </div>
 </div>
-<form class="contact-form" id="contactForm" action="https://formspree.io/f/xdkgvzjo" method="POST">
+<form class="contact-form scroll-effect" id="contactForm" action="https://formspree.io/f/xdkgvzjo" method="POST">
     <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
@@ -1918,26 +1927,29 @@ transform: scale(1.2);
         });
       });
 
-      // Add scroll animation to sections
-      const sections = document.querySelectorAll('.section');
-      const options = {
-        threshold: 0.1
-      };
+      // Scroll Effects
+      const scrollEffects = document.querySelectorAll('.scroll-effect');
 
-      const observer = new IntersectionObserver(function(entries, observer) {
+      const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
+
+            // Add different animations based on index for variety
+            const index = Array.from(scrollEffects).indexOf(entry.target);
+            if (index % 2 === 0) {
+              entry.target.classList.add('fade-in');
+            } else {
+              entry.target.classList.add('slide-up');
+            }
           }
         });
-      }, options);
+      }, {
+        threshold: 0.1
+      });
 
-      sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
+      scrollEffects.forEach(effect => {
+        scrollObserver.observe(effect);
       });
 
       // Add parallax effect to hero section
@@ -1991,42 +2003,6 @@ transform: scale(1.2);
         button.addEventListener('click', function() {
           const card = this.closest('.founder-card');
           card.classList.remove('flipped');
-        });
-      });
-
-      // Scroll Effects
-      const scrollEffects = document.querySelectorAll('.scroll-effect');
-
-      const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-
-            // Add different animations based on index for variety
-            const index = Array.from(scrollEffects).indexOf(entry.target);
-            if (index % 2 === 0) {
-              entry.target.classList.add('fade-in');
-            } else {
-              entry.target.classList.add('slide-up');
-            }
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
-
-      scrollEffects.forEach(effect => {
-        scrollObserver.observe(effect);
-      });
-
-      // Add parallax effect to founder cards
-      window.addEventListener('scroll', function() {
-        const scrollPosition = window.pageYOffset;
-        const founderCards = document.querySelectorAll('.founder-card');
-
-        founderCards.forEach((card, index) => {
-          const speed = 0.1 + (index * 0.05);
-          card.style.transform = `translateY(${scrollPosition * speed}px)`;
         });
       });
     });
