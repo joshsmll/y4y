@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Youth 4 Youth Fundraising</title>
+<title>Youth 4 Youth Fundraising - Empowering Youth Through Philanthropy</title>
+<meta name="description" content="Youth 4 Youth is a philanthropic initiative supporting families with children battling cancer through food, hospitality, and community service.">
+<meta name="keywords" content="youth philanthropy, charity events, fundraising, Ronald McDonald House, NYC nonprofits">
+<meta name="author" content="Youth 4 Youth">
+<meta property="og:title" content="Youth 4 Youth Fundraising">
+<meta property="og:description" content="Empowering youth-oriented non-profits through food and hospitality events in NYC">
+<meta property="og:image" content="https://i.imgur.com/fUaPzKe.jpeg">
+<meta property="og:url" content="https://www.y4ynyc.com">
+<link rel="canonical" href="https://www.y4ynyc.com">
+
 <style>
 /* Base Styles */
 :root {
@@ -13,7 +22,7 @@
 --light-color: #f8f9fa;
 --dark-color: #212529;
 --transition: all 0.3s ease;
---max-width: 1400px; /* Increased max width */
+--max-width: 1400px;
 --section-padding: 8rem 2rem;
 --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 --border-radius: 12px;
@@ -256,59 +265,10 @@ grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 gap: 3rem;
 }
 
-.card {
-border-radius: var(--border-radius);
-overflow: hidden;
-box-shadow: var(--card-shadow);
-transition: var(--transition);
-height: 100%;
-display: flex;
-flex-direction: column;
-}
-
-.card:hover {
-transform: translateY(-10px);
-box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.card-img {
-width: 100%;
-height: 300px;
-object-fit: cover;
-}
-
-.card-content {
-padding: 2.5rem;
-flex: 1;
-display: flex;
-flex-direction: column;
-}
-
-.card-content h3 {
-font-size: 1.8rem;
-margin-bottom: 1rem;
-color: var(--secondary-color);
-}
-
-.card-content p {
-margin-bottom: 2rem;
-color: #6c757d;
-font-size: 1.1rem;
-line-height: 1.7;
-flex: 1;
-}
-
-/* Founders Section */
-.founders {
-background-color: #f8f9fa;
-border-radius: var(--border-radius);
-padding: 5rem 3rem;
-box-shadow: var(--card-shadow);
-}
-
+/* Founders Section Grid */
 .founder-profiles {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+grid-template-columns: repeat(3, 1fr);
 gap: 3rem;
 margin-top: 3rem;
 }
@@ -359,6 +319,57 @@ margin: 0 auto 1.5rem;
 display: block;
 border: 5px solid white;
 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styles */
+.card {
+border-radius: var(--border-radius);
+overflow: hidden;
+box-shadow: var(--card-shadow);
+transition: var(--transition);
+height: 100%;
+display: flex;
+flex-direction: column;
+}
+
+.card:hover {
+transform: translateY(-10px);
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+width: 100%;
+height: 300px;
+object-fit: cover;
+}
+
+.card-content {
+padding: 2.5rem;
+flex: 1;
+display: flex;
+flex-direction: column;
+}
+
+.card-content h3 {
+font-size: 1.8rem;
+margin-bottom: 1rem;
+color: var(--secondary-color);
+}
+
+.card-content p {
+margin-bottom: 2rem;
+color: #6c757d;
+font-size: 1.1rem;
+line-height: 1.7;
+flex: 1;
+}
+
+/* Founders Section */
+.founders {
+background-color: #f8f9fa;
+border-radius: var(--border-radius);
+padding: 5rem 3rem;
+box-shadow: var(--card-shadow);
 }
 
 /* As Seen In Section */
@@ -825,12 +836,6 @@ cursor: pointer;
 transition: var(--transition);
 }
 
-.mailing-list-form .btn:hover {
-background-color: #2a6ddf;
-transform: translateY(-2px);
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
 /* Responsive Design */
 @media (max-width: 1200px) {
 :root {
@@ -861,6 +866,10 @@ font-size: 3rem;
 
 .cards-grid {
 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.founder-profiles {
+grid-template-columns: 1fr;
 }
 }
 
@@ -897,10 +906,6 @@ grid-template-columns: 1fr;
 
 .founders, .contact {
 padding: 4rem 1.5rem;
-}
-
-.founder-profiles, .contact-grid {
-grid-template-columns: 1fr;
 }
 
 .logo-item {
@@ -1100,15 +1105,15 @@ gap: 2rem;
 <p>Josh is a 16-year-old young chef and entrepreneur. With a passion for international cuisine, he's focused on creating trendy yet approachable dining experiences that blend high-end techniques as well as local ingredients. Josh has been fundraising for over 4 years. Out of the kitchen, Josh is an avid runner and is half French. He's also an avid mixologist. He goes to school at the Lycée Français de New York and spends his time between NYC and the Catskills.</p>
 </div>
 <div class="founder-card">
+<h3>What is Y4Y?</h3>
+<span class="title">Meet the fruit of their labor!</span>
+<p>Youth 4 Youth is a philanthropic initiative co-founded by Joshua Small and Alexander Morris, two teenagers from New York City, aimed at supporting families with children battling cancer through the Ronald McDonald House New York (RMH-NY). The program brings together young people through food, hospitality, and community service to make a positive impact.</p>
+</div>
+<div class="founder-card">
 <img src="https://i.imgur.com/jPgmzwC.png" alt="Alexander Morris" class="founder-img">
 <h3>Alexander Morris</h3>
 <span class="title">Hospitality Director &amp; Co-Founder/Organizer</span>
 <p>Alexander is a dynamic 16-year-old youth event organizer and planner, with a passion for hospitality and crafting memorable and inclusive experiences. He has previously volunteered and served on the Youth Advisory Boards of various non-profits including the Ronald McDonald House New York and the Billion Oyster Project. He currently attends Léman Prep High School and is fluent in French and Spanish, as well as on the Varsity Basketball and Tennis teams.</p>
-</div>
-<div class="founder-card">
-<h3>What is Y4Y?</h3>
-<span class="title">Meet the fruit of their labor!</span>
-<p>Youth 4 Youth is a philanthropic initiative co-founded by Joshua Small and Alexander Morris, two teenagers from New York City, aimed at supporting families with children battling cancer through the Ronald McDonald House New York (RMH-NY). The program brings together young people through food, hospitality, and community service to make a positive impact.</p>
 </div>
 </div>
 </div>
@@ -1159,7 +1164,7 @@ gap: 2rem;
 <article class="card">
 <div class="mailing-list-form">
 <h3>Join Our Mailing List</h3>
-<form id="simple-form">
+<form id="mailing-list-form">
 <div class="form-group">
 <label for="name">Name</label>
 <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
@@ -1282,7 +1287,7 @@ gap: 2rem;
         const prevBtn = gallery.querySelector('.prev-btn');
         const indicators = gallery.querySelectorAll('.gallery-indicator');
         const descriptions = [
-          "Guests watching our co-founders’ speech reflecting their attachment to our wonderful causes.",
+          "Guests watching our co-founders' speech reflecting their attachment to our wonderful causes.",
           "Our bar menu, featuring craft cocktails, luxurious champagne and natural wines.",
           "Diners enjoying a fabulous 4 course tasting menu, made from scratch with local ingredients."
         ];
@@ -1324,32 +1329,27 @@ gap: 2rem;
           });
         });
       });
-    });
 
-    // Mailing List Form Submission
-    document.getElementById('simple-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = {
-        name: form.name.value,
-        email: form.email.value
-      };
+      // Mailing List Form Submission
+      document.getElementById('mailing-list-form').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-      fetch(
-        'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
-        {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }
-      );
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
 
-      alert('Submitted!');
-      form.reset();
+        // Create mailto link
+        const subject = encodeURIComponent('Mailing List Subscription');
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nI would like to subscribe to the Youth 4 Youth mailing list.`);
+        const mailtoLink = `mailto:founders@y4ynyc.com?subject=${subject}&body=${body}`;
+
+        // Open default email client
+        window.location.href = mailtoLink;
+
+        // Reset form
+        this.reset();
+      });
     });
   </script>
 </body>
 </html>
+
