@@ -1060,6 +1060,129 @@ height: 4px;
 background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 border-radius: 2px;
 }
+
+/* Social Media Links */
+.social-media-links {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin-top: 1rem;
+}
+
+.social-media-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: rgba(58, 134, 255, 0.1);
+color: var(--primary-color);
+transition: var(--transition);
+font-size: 1.2rem;
+}
+
+.social-media-links a:hover {
+background-color: var(--primary-color);
+color: white;
+transform: translateY(-3px);
+}
+
+/* Fix for overlapping buttons */
+.gallery-controls {
+padding: 1.5rem 2rem;
+}
+
+.gallery-btn {
+margin: 0 0.5rem;
+}
+
+/* Founder Gallery */
+.founder-gallery {
+display: flex;
+flex-direction: column;
+}
+
+.founder-gallery-container {
+position: relative;
+height: 250px;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.founder-gallery-slides {
+position: relative;
+height: 100%;
+width: 100%;
+}
+
+.founder-gallery-slide {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+opacity: 0;
+transition: opacity 0.5s ease;
+}
+
+.founder-gallery-slide.active {
+opacity: 1;
+}
+
+.founder-gallery-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.founder-gallery-controls {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin-top: 0.5rem;
+}
+
+.founder-gallery-btn {
+background-color: rgba(58, 134, 255, 0.1);
+border: none;
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+color: var(--primary-color);
+cursor: pointer;
+transition: var(--transition);
+}
+
+.founder-gallery-btn:hover {
+background-color: var(--primary-color);
+color: white;
+}
+
+.founder-gallery-indicators {
+display: flex;
+justify-content: center;
+gap: 0.5rem;
+margin-top: 0.5rem;
+}
+
+.founder-gallery-indicator {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: rgba(58, 134, 255, 0.3);
+cursor: pointer;
+transition: var(--transition);
+}
+
+.founder-gallery-indicator.active {
+background-color: var(--primary-color);
+transform: scale(1.2);
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1217,10 +1340,44 @@ border-radius: 2px;
 </div>
 <div class="founder-profiles">
 <div class="founder-card hover-scale">
+<div class="founder-gallery">
+<div class="founder-gallery-container">
+<div class="founder-gallery-slides">
+<div class="founder-gallery-slide active">
+<img src="https://s.yimg.com/ny/api/res/1.2/D2hDCWb78NeZ8ovAR_mSbQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYzOQ--/https://media.zenfs.com/en/ny_post_articles_869/12f72bbc1bac926a0a95278de65db77f" alt="Joshua Small" class="founder-gallery-image">
+</div>
+<div class="founder-gallery-slide">
+<img src="https://i.imgur.com/7SuDRWn.jpeg" alt="Joshua Small at Event" class="founder-gallery-image">
+</div>
+<div class="founder-gallery-slide">
+<img src="https://i.imgur.com/xHa1FTi.jpeg" alt="Joshua Small Cooking" class="founder-gallery-image">
+</div>
+</div>
+<div class="founder-gallery-controls">
+<button class="founder-gallery-btn prev-btn">
+<i class="fas fa-chevron-left"></i>
+</button>
+<button class="founder-gallery-btn next-btn">
+<i class="fas fa-chevron-right"></i>
+</button>
+</div>
+<div class="founder-gallery-indicators">
+<span class="founder-gallery-indicator active"></span>
+<span class="founder-gallery-indicator"></span>
+<span class="founder-gallery-indicator"></span>
+</div>
+</div>
+</div>
 <img src="https://s.yimg.com/ny/api/res/1.2/D2hDCWb78NeZ8ovAR_mSbQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYzOQ--/https://media.zenfs.com/en/ny_post_articles_869/12f72bbc1bac926a0a95278de65db77f" alt="Joshua Small" class="founder-img">
 <h3>Joshua Small</h3>
 <span class="title">Culinary Director &amp; Co-Founder/Organizer</span>
 <p>Josh is a 16-year-old young chef and entrepreneur. With a passion for international cuisine, he's focused on creating trendy yet approachable dining experiences that blend high-end techniques as well as local ingredients. Josh has been fundraising for over 4 years. Out of the kitchen, Josh is an avid runner and is half French. He's also an avid mixologist. He goes to school at the Lycée Français de New York and spends his time between NYC and the Catskills.</p>
+<div class="social-media-links">
+<a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+<a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+</div>
 </div>
 <div class="founder-card hover-scale">
 <h3>What is Y4Y?</h3>
@@ -1228,10 +1385,44 @@ border-radius: 2px;
 <p>Youth 4 Youth is a philanthropic initiative co-founded by Joshua Small and Alexander Morris, two teenagers from New York City, aimed at supporting families with children battling cancer through the Ronald McDonald House New York (RMH-NY). The program brings together young people through food, hospitality, and community service to make a positive impact.</p>
 </div>
 <div class="founder-card hover-scale">
+<div class="founder-gallery">
+<div class="founder-gallery-container">
+<div class="founder-gallery-slides">
+<div class="founder-gallery-slide active">
+<img src="https://i.imgur.com/jPgmzwC.png" alt="Alexander Morris" class="founder-gallery-image">
+</div>
+<div class="founder-gallery-slide">
+<img src="https://i.imgur.com/MlQFE1T.jpeg" alt="Alexander Morris at Event" class="founder-gallery-image">
+</div>
+<div class="founder-gallery-slide">
+<img src="https://i.imgur.com/t6KVYR5.png" alt="Alexander Morris Speaking" class="founder-gallery-image">
+</div>
+</div>
+<div class="founder-gallery-controls">
+<button class="founder-gallery-btn prev-btn">
+<i class="fas fa-chevron-left"></i>
+</button>
+<button class="founder-gallery-btn next-btn">
+<i class="fas fa-chevron-right"></i>
+</button>
+</div>
+<div class="founder-gallery-indicators">
+<span class="founder-gallery-indicator active"></span>
+<span class="founder-gallery-indicator"></span>
+<span class="founder-gallery-indicator"></span>
+</div>
+</div>
+</div>
 <img src="https://i.imgur.com/jPgmzwC.png" alt="Alexander Morris" class="founder-img">
 <h3>Alexander Morris</h3>
 <span class="title">Hospitality Director &amp; Co-Founder/Organizer</span>
 <p>Alexander is a dynamic 16-year-old youth event organizer and planner, with a passion for hospitality and crafting memorable and inclusive experiences. He has previously volunteered and served on the Youth Advisory Boards of various non-profits including the Ronald McDonald House New York and the Billion Oyster Project. He currently attends Léman Prep High School and is fluent in French and Spanish, as well as on the Varsity Basketball and Tennis teams.</p>
+<div class="social-media-links">
+<a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+<a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+</div>
 </div>
 </div>
 </div>
@@ -1426,6 +1617,45 @@ border-radius: 2px;
           if (descriptionElement) {
             descriptionElement.textContent = descriptions[index];
           }
+        }
+
+        // Next button click
+        nextBtn.addEventListener('click', function() {
+          currentIndex = (currentIndex + 1) % slides.length;
+          showSlide(currentIndex);
+        });
+
+        // Previous button click
+        prevBtn.addEventListener('click', function() {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+          showSlide(currentIndex);
+        });
+
+        // Indicator clicks
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', function() {
+            currentIndex = index;
+            showSlide(currentIndex);
+          });
+        });
+      });
+
+      // Founder Gallery navigation functionality
+      document.querySelectorAll('.founder-gallery-container').forEach(gallery => {
+        const slides = gallery.querySelectorAll('.founder-gallery-slide');
+        const nextBtn = gallery.querySelector('.next-btn');
+        const prevBtn = gallery.querySelector('.prev-btn');
+        const indicators = gallery.querySelectorAll('.founder-gallery-indicator');
+
+        let currentIndex = 0;
+
+        // Function to show a specific slide
+        function showSlide(index) {
+          slides.forEach(slide => slide.classList.remove('active'));
+          indicators.forEach(indicator => indicator.classList.remove('active'));
+
+          slides[index].classList.add('active');
+          indicators[index].classList.add('active');
         }
 
         // Next button click
