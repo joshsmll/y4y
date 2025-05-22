@@ -1182,6 +1182,115 @@ transform: scale(1.2);
 .see-in-action {
     margin-top: 1rem;
 }
+
+/* Founder Card Flip Animation */
+.founder-card {
+  perspective: 1000px;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.founder-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.founder-card.flipped .founder-card-inner {
+  transform: rotateY(180deg);
+}
+
+.founder-card-front, .founder-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-card-back {
+  transform: rotateY(180deg);
+  background-color: white;
+}
+
+/* Scroll Effects */
+.scroll-effect {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-effect.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-effect.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.scroll-effect.slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Update the founder gallery styles */
+.founder-gallery-container {
+  height: 300px;
+  margin-bottom: 1.5rem;
+}
+
+.founder-gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide the "See in Action" button on the back of the card */
+.founder-card.flipped .see-in-action {
+  display: none;
+}
+
+/* Style for the back button on the founder card */
+.back-to-profile-btn {
+  margin-top: auto;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--light-color);
+  border: none;
+  border-radius: 50px;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--primary-color);
+  align-self: flex-end;
+}
+
+.back-to-profile-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1338,90 +1447,172 @@ transform: scale(1.2);
 <p>2 passionate collaborators, with a common goal of making the world a better place.</p>
 </div>
 <div class="founder-profiles">
-<div class="founder-card hover-scale">
-<div class="founder-gallery">
-<div class="founder-gallery-container">
-<div class="founder-gallery-slides">
-<div class="founder-gallery-slide active">
-<img src="https://s.yimg.com/ny/api/res/1.2/D2hDCWb78NeZ8ovAR_mSbQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYzOQ--/https://media.zenfs.com/en/ny_post_articles_869/12f72bbc1bac926a0a95278de65db77f" alt="Joshua Small" class="founder-gallery-image">
+<div class="founder-card hover-scale scroll-effect">
+  <div class="founder-card-inner">
+    <!-- Front of the card -->
+    <div class="founder-card-front">
+      <div class="founder-gallery">
+        <div class="founder-gallery-container">
+          <div class="founder-gallery-slides">
+            <div class="founder-gallery-slide active">
+              <img src="https://s.yimg.com/ny/api/res/1.2/D2hDCWb78NeZ8ovAR_mSbQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYzOQ--/https://media.zenfs.com/en/ny_post_articles_869/12f72bbc1bac926a0a95278de65db77f" alt="Joshua Small" class="founder-gallery-image">
+            </div>
+            <div class="founder-gallery-slide">
+              <img src="https://i.imgur.com/7SuDRWn.jpeg" alt="Joshua Small at Event" class="founder-gallery-image">
+            </div>
+            <div class="founder-gallery-slide">
+              <img src="https://i.imgur.com/xHa1FTi.jpeg" alt="Joshua Small Cooking" class="founder-gallery-image">
+            </div>
+          </div>
+          <div class="founder-gallery-controls">
+            <button class="founder-gallery-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="founder-gallery-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="founder-gallery-indicators">
+            <span class="founder-gallery-indicator active"></span>
+            <span class="founder-gallery-indicator"></span>
+            <span class="founder-gallery-indicator"></span>
+          </div>
+        </div>
+      </div>
+      <h3>Joshua Small</h3>
+      <span class="title">Culinary Director & Co-Founder/Organizer</span>
+      <p>Josh is a 16-year-old young chef and entrepreneur. With a passion for international cuisine, he's focused on creating trendy yet approachable dining experiences that blend high-end techniques as well as local ingredients. Josh has been fundraising for over 4 years. Out of the kitchen, Josh is an avid runner and is half French. He's also an avid mixologist. He goes to school at the Lycée Français de New York and spends his time between NYC and the Catskills.</p>
+      <div class="social-media-links">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <button class="btn btn-outline see-in-action">See in Action</button>
+    </div>
+
+    <!-- Back of the card - Gallery view -->
+    <div class="founder-card-back">
+      <div class="gallery-container">
+        <div class="gallery-slides">
+          <div class="gallery-slide active">
+            <img src="https://i.imgur.com/7SuDRWn.jpeg" alt="Joshua Small at Event" class="gallery-image">
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.imgur.com/xHa1FTi.jpeg" alt="Joshua Small Cooking" class="gallery-image">
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.imgur.com/bmAqR3G.jpeg" alt="Joshua Small Speaking" class="gallery-image">
+          </div>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-btn prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="gallery-btn next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="gallery-indicators">
+          <span class="gallery-indicator active"></span>
+          <span class="gallery-indicator"></span>
+          <span class="gallery-indicator"></span>
+        </div>
+      </div>
+      <div class="gallery-caption">
+        <h4>Joshua in Action</h4>
+        <p class="slide-description">Joshua preparing dishes for one of our fundraising events.</p>
+        <button class="back-to-profile-btn">Back to Profile</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="founder-gallery-slide">
-<img src="https://i.imgur.com/7SuDRWn.jpeg" alt="Joshua Small at Event" class="founder-gallery-image">
+
+<div class="founder-card hover-scale scroll-effect">
+  <h3>What is Y4Y?</h3>
+  <span class="title">Meet the fruit of their labor!</span>
+  <p>Youth 4 Youth is a philanthropic initiative co-founded by Joshua Small and Alexander Morris, two teenagers from New York City, aimed at supporting families with children battling cancer through the Ronald McDonald House New York (RMH-NY). The program brings together young people through food, hospitality, and community service to make a positive impact.</p>
 </div>
-<div class="founder-gallery-slide">
-<img src="https://i.imgur.com/xHa1FTi.jpeg" alt="Joshua Small Cooking" class="founder-gallery-image">
-</div>
-</div>
-<div class="founder-gallery-controls">
-<button class="founder-gallery-btn prev-btn">
-<i class="fas fa-chevron-left"></i>
-</button>
-<button class="founder-gallery-btn next-btn">
-<i class="fas fa-chevron-right"></i>
-</button>
-</div>
-<div class="founder-gallery-indicators">
-<span class="founder-gallery-indicator active"></span>
-<span class="founder-gallery-indicator"></span>
-<span class="founder-gallery-indicator"></span>
-</div>
-</div>
-</div>
-<h3>Joshua Small</h3>
-<span class="title">Culinary Director &amp; Co-Founder/Organizer</span>
-<p>Josh is a 16-year-old young chef and entrepreneur. With a passion for international cuisine, he's focused on creating trendy yet approachable dining experiences that blend high-end techniques as well as local ingredients. Josh has been fundraising for over 4 years. Out of the kitchen, Josh is an avid runner and is half French. He's also an avid mixologist. He goes to school at the Lycée Français de New York and spends his time between NYC and the Catskills.</p>
-<div class="social-media-links">
-<a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-<a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-</div>
-<button class="btn btn-outline see-in-action">See in Action</button>
-</div>
-<div class="founder-card hover-scale">
-<h3>What is Y4Y?</h3>
-<span class="title">Meet the fruit of their labor!</span>
-<p>Youth 4 Youth is a philanthropic initiative co-founded by Joshua Small and Alexander Morris, two teenagers from New York City, aimed at supporting families with children battling cancer through the Ronald McDonald House New York (RMH-NY). The program brings together young people through food, hospitality, and community service to make a positive impact.</p>
-</div>
-<div class="founder-card hover-scale">
-<div class="founder-gallery">
-<div class="founder-gallery-container">
-<div class="founder-gallery-slides">
-<div class="founder-gallery-slide active">
-<img src="https://i.imgur.com/jPgmzwC.png" alt="Alexander Morris" class="founder-gallery-image">
-</div>
-<div class="founder-gallery-slide">
-<img src="https://i.imgur.com/MlQFE1T.jpeg" alt="Alexander Morris at Event" class="founder-gallery-image">
-</div>
-<div class="founder-gallery-slide">
-<img src="https://i.imgur.com/t6KVYR5.png" alt="Alexander Morris Speaking" class="founder-gallery-image">
-</div>
-</div>
-<div class="founder-gallery-controls">
-<button class="founder-gallery-btn prev-btn">
-<i class="fas fa-chevron-left"></i>
-</button>
-<button class="founder-gallery-btn next-btn">
-<i class="fas fa-chevron-right"></i>
-</button>
-</div>
-<div class="founder-gallery-indicators">
-<span class="founder-gallery-indicator active"></span>
-<span class="founder-gallery-indicator"></span>
-<span class="founder-gallery-indicator"></span>
-</div>
-</div>
-</div>
-<h3>Alexander Morris</h3>
-<span class="title">Hospitality Director &amp; Co-Founder/Organizer</span>
-<p>Alexander is a dynamic 16-year-old youth event organizer and planner, with a passion for hospitality and crafting memorable and inclusive experiences. He has previously volunteered and served on the Youth Advisory Boards of various non-profits including the Ronald McDonald House New York and the Billion Oyster Project. He currently attends Léman Prep High School and is fluent in French and Spanish, as well as on the Varsity Basketball and Tennis teams.</p>
-<div class="social-media-links">
-<a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-<a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-</div>
-<button class="btn btn-outline see-in-action">See in Action</button>
+
+<div class="founder-card hover-scale scroll-effect">
+  <div class="founder-card-inner">
+    <!-- Front of the card -->
+    <div class="founder-card-front">
+      <div class="founder-gallery">
+        <div class="founder-gallery-container">
+          <div class="founder-gallery-slides">
+            <div class="founder-gallery-slide active">
+              <img src="https://i.imgur.com/jPgmzwC.png" alt="Alexander Morris" class="founder-gallery-image">
+            </div>
+            <div class="founder-gallery-slide">
+              <img src="https://i.imgur.com/MlQFE1T.jpeg" alt="Alexander Morris at Event" class="founder-gallery-image">
+            </div>
+            <div class="founder-gallery-slide">
+              <img src="https://i.imgur.com/t6KVYR5.png" alt="Alexander Morris Speaking" class="founder-gallery-image">
+            </div>
+          </div>
+          <div class="founder-gallery-controls">
+            <button class="founder-gallery-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="founder-gallery-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="founder-gallery-indicators">
+            <span class="founder-gallery-indicator active"></span>
+            <span class="founder-gallery-indicator"></span>
+            <span class="founder-gallery-indicator"></span>
+          </div>
+        </div>
+      </div>
+      <h3>Alexander Morris</h3>
+      <span class="title">Hospitality Director & Co-Founder/Organizer</span>
+      <p>Alexander is a dynamic 16-year-old youth event organizer and planner, with a passion for hospitality and crafting memorable and inclusive experiences. He has previously volunteered and served on the Youth Advisory Boards of various non-profits including the Ronald McDonald House New York and the Billion Oyster Project. He currently attends Léman Prep High School and is fluent in French and Spanish, as well as on the Varsity Basketball and Tennis teams.</p>
+      <div class="social-media-links">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <button class="btn btn-outline see-in-action">See in Action</button>
+    </div>
+
+    <!-- Back of the card - Gallery view -->
+    <div class="founder-card-back">
+      <div class="gallery-container">
+        <div class="gallery-slides">
+          <div class="gallery-slide active">
+            <img src="https://i.imgur.com/MlQFE1T.jpeg" alt="Alexander Morris at Event" class="gallery-image">
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.imgur.com/t6KVYR5.png" alt="Alexander Morris Speaking" class="gallery-image">
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.imgur.com/1ncPs1B.jpeg" alt="Alexander Morris Organizing" class="gallery-image">
+          </div>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-btn prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="gallery-btn next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="gallery-indicators">
+          <span class="gallery-indicator active"></span>
+          <span class="gallery-indicator"></span>
+          <span class="gallery-indicator"></span>
+        </div>
+      </div>
+      <div class="gallery-caption">
+        <h4>Alexander in Action</h4>
+        <p class="slide-description">Alexander organizing one of our community events.</p>
+        <button class="back-to-profile-btn">Back to Profile</button>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -1594,7 +1785,7 @@ transform: scale(1.2);
       seeInActionButtons.forEach(button => {
         button.addEventListener('click', function(e) {
           e.preventDefault();
-          const card = this.closest('.card');
+          const card = this.closest('.founder-card');
           card.classList.add('flipped');
         });
       });
@@ -1790,6 +1981,52 @@ transform: scale(1.2);
         .catch(error => {
           responseMessage.textContent = 'Oops! There was a problem submitting your form';
           responseMessage.style.color = 'red';
+        });
+      });
+
+      // Founder Card Flip Functionality
+      const backToProfileButtons = document.querySelectorAll('.back-to-profile-btn');
+
+      backToProfileButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const card = this.closest('.founder-card');
+          card.classList.remove('flipped');
+        });
+      });
+
+      // Scroll Effects
+      const scrollEffects = document.querySelectorAll('.scroll-effect');
+
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+
+            // Add different animations based on index for variety
+            const index = Array.from(scrollEffects).indexOf(entry.target);
+            if (index % 2 === 0) {
+              entry.target.classList.add('fade-in');
+            } else {
+              entry.target.classList.add('slide-up');
+            }
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      scrollEffects.forEach(effect => {
+        scrollObserver.observe(effect);
+      });
+
+      // Add parallax effect to founder cards
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        const founderCards = document.querySelectorAll('.founder-card');
+
+        founderCards.forEach((card, index) => {
+          const speed = 0.1 + (index * 0.05);
+          card.style.transform = `translateY(${scrollPosition * speed}px)`;
         });
       });
     });
