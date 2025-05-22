@@ -3,15 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Youth 4 Youth Fundraising - Empowering Youth Through Philanthropy</title>
-<meta name="description" content="Youth 4 Youth is a philanthropic initiative supporting families with children battling cancer through food, hospitality, and community service.">
-<meta name="keywords" content="youth philanthropy, charity events, fundraising, Ronald McDonald House, NYC nonprofits">
+<title>Youth 4 Youth Fundraising - Empowering Youth Through Philanthropy | NYC Charity Events</title>
+<meta name="description" content="Youth 4 Youth is a NYC-based philanthropic initiative supporting families with children battling cancer through food, hospitality, and community service events. Join our mission today!">
+<meta name="keywords" content="youth philanthropy, charity events NYC, fundraising for children with cancer, Ronald McDonald House, NYC nonprofits, teen philanthropy, youth volunteer opportunities">
 <meta name="author" content="Youth 4 Youth">
-<meta property="og:title" content="Youth 4 Youth Fundraising">
-<meta property="og:description" content="Empowering youth-oriented non-profits through food and hospitality events in NYC">
+<meta property="og:title" content="Youth 4 Youth Fundraising - Empowering Youth Through Philanthropy">
+<meta property="og:description" content="Join our mission to support families with children battling cancer through food, hospitality, and community service events in NYC.">
 <meta property="og:image" content="https://i.imgur.com/fUaPzKe.jpeg">
 <meta property="og:url" content="https://www.y4ynyc.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Youth 4 Youth Fundraising - Empowering Youth Through Philanthropy">
+<meta name="twitter:description" content="Join our mission to support families with children battling cancer through food, hospitality, and community service events in NYC.">
+<meta name="twitter:image" content="https://i.imgur.com/fUaPzKe.jpeg">
 <link rel="canonical" href="https://www.y4ynyc.com">
+<link rel="alternate" hreflang="en" href="https://www.y4ynyc.com" />
+
+<!-- Schema.org markup for Google -->
+<meta itemprop="name" content="Youth 4 Youth Fundraising">
+<meta itemprop="description" content="Youth 4 Youth is a NYC-based philanthropic initiative supporting families with children battling cancer through food, hospitality, and community service events.">
+<meta itemprop="image" content="https://i.imgur.com/fUaPzKe.jpeg">
 
 <style>
 /* Base Styles */
@@ -74,6 +85,7 @@ background-color: rgba(255, 255, 255, 0.95);
 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 z-index: 1000;
 width: 100%;
+transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -94,6 +106,11 @@ align-items: center;
 .logo img {
 height: 43px;
 width: auto;
+transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+transform: scale(1.05);
 }
 
 .nav-links {
@@ -106,6 +123,7 @@ font-weight: 500;
 position: relative;
 transition: var(--transition);
 font-size: 1.1rem;
+padding: 0.5rem 0;
 }
 
 .nav-links a:after {
@@ -113,7 +131,7 @@ content: '';
 position: absolute;
 width: 0;
 height: 2px;
-bottom: -4px;
+bottom: 0;
 left: 0;
 background-color: var(--primary-color);
 transition: var(--transition);
@@ -169,6 +187,8 @@ font-weight: 600;
 transition: var(--transition);
 text-align: center;
 font-size: 1.1rem;
+border: none;
+cursor: pointer;
 }
 
 .btn-primary {
@@ -950,10 +970,108 @@ font-size: 1rem;
 gap: 2rem;
 }
 }
+
+/* New animations and effects */
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.05); }
+100% { transform: scale(1); }
+}
+
+.pulse {
+animation: pulse 2s infinite;
+}
+
+.hover-scale:hover {
+transform: scale(1.03);
+transition: transform 0.3s ease;
+}
+
+/* Enhanced card styles */
+.card {
+position: relative;
+overflow: hidden;
+}
+
+.card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 5px;
+background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.card:hover::before {
+height: 10px;
+}
+
+/* Enhanced button styles */
+.btn {
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+
+.btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+transform: translateX(-100%);
+transition: transform 0.6s ease;
+z-index: -1;
+}
+
+.btn:hover::before {
+transform: translateX(100%);
+}
+
+/* Enhanced form styles */
+.form-control {
+border: 1px solid #dee2e6;
+transition: all 0.3s ease;
+}
+
+.form-control:focus {
+border-color: var(--primary-color);
+box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+transform: translateY(-2px);
+}
+
+/* Enhanced section headers */
+.section-header h2 {
+position: relative;
+padding-bottom: 1rem;
+}
+
+.section-header h2::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 100px;
+height: 4px;
+background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+border-radius: 2px;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
 </head>
 <body>
 <!-- Navigation -->
@@ -996,7 +1114,7 @@ gap: 2rem;
 </div>
 </div>
 <div class="cards-grid">
-<article class="card">
+<article class="card hover-scale">
 <div class="card-inner">
 <div class="card-front">
 <img src="https://i.imgur.com/CvlyctM.jpeg" alt="Y4Y Gala 2025" class="card-img">
@@ -1042,7 +1160,7 @@ gap: 2rem;
 </div>
 </article>
 
-<article class="card">
+<article class="card hover-scale">
 <div class="card-inner">
 <div class="card-front">
 <img src="2560px-New_York_Post.svg.png" alt="Y4Y Social 2024" class="card-img">
@@ -1098,18 +1216,18 @@ gap: 2rem;
 <p>2 passionate collaborators, with a common goal of making the world a better place.</p>
 </div>
 <div class="founder-profiles">
-<div class="founder-card">
+<div class="founder-card hover-scale">
 <img src="https://s.yimg.com/ny/api/res/1.2/D2hDCWb78NeZ8ovAR_mSbQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYzOQ--/https://media.zenfs.com/en/ny_post_articles_869/12f72bbc1bac926a0a95278de65db77f" alt="Joshua Small" class="founder-img">
 <h3>Joshua Small</h3>
 <span class="title">Culinary Director &amp; Co-Founder/Organizer</span>
 <p>Josh is a 16-year-old young chef and entrepreneur. With a passion for international cuisine, he's focused on creating trendy yet approachable dining experiences that blend high-end techniques as well as local ingredients. Josh has been fundraising for over 4 years. Out of the kitchen, Josh is an avid runner and is half French. He's also an avid mixologist. He goes to school at the Lycée Français de New York and spends his time between NYC and the Catskills.</p>
 </div>
-<div class="founder-card">
+<div class="founder-card hover-scale">
 <h3>What is Y4Y?</h3>
 <span class="title">Meet the fruit of their labor!</span>
 <p>Youth 4 Youth is a philanthropic initiative co-founded by Joshua Small and Alexander Morris, two teenagers from New York City, aimed at supporting families with children battling cancer through the Ronald McDonald House New York (RMH-NY). The program brings together young people through food, hospitality, and community service to make a positive impact.</p>
 </div>
-<div class="founder-card">
+<div class="founder-card hover-scale">
 <img src="https://i.imgur.com/jPgmzwC.png" alt="Alexander Morris" class="founder-img">
 <h3>Alexander Morris</h3>
 <span class="title">Hospitality Director &amp; Co-Founder/Organizer</span>
@@ -1126,27 +1244,27 @@ gap: 2rem;
 <p>Our initiatives have been featured in these respected publications.</p>
 </div>
 <div class="logos-container">
-<div class="logo-item">
+<div class="logo-item hover-scale">
 <a href="https://nypost.com/2024/05/03/lifestyle/nyc-teen-hosts-6000-dinner-on-ues-for-kids-with-cancer/" target="_blank">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiz2TbCXAG6WsLFBjS_izRWT1OkD8gUS5z7w&s" alt="New York Post Logo">
 </a>
 </div>
-<div class="logo-item">
+<div class="logo-item hover-scale">
 <a href="https://www.youtube.com/watch?v=68JtfvqCS-Q" target="_blank">
 <img src="https://logowik.com/content/uploads/images/cbs-news8651.jpg" alt="CBS News Logo">
 </a>
 </div>
-<div class="logo-item">
+<div class="logo-item hover-scale">
 <a href="https://pix11.com/news/local-news/nyc-teens-set-100k-goal-for-childhood-cancer-charity-dinner/" target="_blank">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMumFG4yaTSiIC4KeT17L9XzlJe3hme4HizA&s" alt="Pix 11 News Logo">
 </a>
 </div>
-<div class="logo-item">
+<div class="logo-item hover-scale">
 <a href="https://patch.com/new-york/upper-east-side-nyc/ues-teen-chef-cook-money-kids-cancer" target="_blank">
 <img src="https://brooklynactinglab.org/wp-content/uploads/2018/03/logo-patch-800x600.png" alt="Patch News Logo">
 </a>
 </div>
-<div class="logo-item">
+<div class="logo-item hover-scale">
 <a href="https://www.yahoo.com/news/nyc-teens-set-100k-goal-180450555.html" target="_blank">
 <img src="https://seeklogo.com/images/Y/yahoo-news-logo-0A2C62B496-seeklogo.com.png" alt="Yahoo News Logo">
 </a>
@@ -1161,17 +1279,17 @@ gap: 2rem;
 <p>Check back soon for our upcoming initiatives. If you want to contact us or partner with us for co-fundraising or volunteering for future events, feel free to do so in our contact-us section!</p>
 </div>
 <div class="cards-grid">
-<article class="card">
+<article class="card hover-scale">
 <div class="mailing-list-form">
 <h3>Join Our Mailing List</h3>
-<form id="mailing-list-form">
+<form id="simple-form">
 <div class="form-group">
 <label for="name">Name</label>
-<input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+<input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
 </div>
 <div class="form-group">
 <label for="email">Email</label>
-<input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+<input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
 </div>
 <button type="submit" class="btn">Subscribe</button>
 </form>
@@ -1189,7 +1307,7 @@ gap: 2rem;
 </div>
 <div class="contact-grid">
 <div class="contact-info">
-<div class="contact-item">
+<div class="contact-item hover-scale">
 <div class="contact-item-icon">
 <i class="fas fa-map-marker-alt"></i>
 </div>
@@ -1198,7 +1316,7 @@ gap: 2rem;
 <p>New York City</p>
 </div>
 </div>
-<div class="contact-item">
+<div class="contact-item hover-scale">
 <div class="contact-item-icon">
 <i class="fas fa-envelope"></i>
 </div>
@@ -1331,23 +1449,31 @@ gap: 2rem;
       });
 
       // Mailing List Form Submission
-      document.getElementById('mailing-list-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+      document
+        .getElementById('simple-form')
+        .addEventListener('submit', function (e) {
+          e.preventDefault();
+          const form = e.target;
+          const data = {
+            name: form.name.value,
+            email: form.email.value
+          };
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
+          fetch(
+            'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
+            {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            }
+          );
 
-        // Create mailto link
-        const subject = encodeURIComponent('Mailing List Subscription');
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nI would like to subscribe to the Youth 4 Youth mailing list.`);
-        const mailtoLink = `mailto:founders@y4ynyc.com?subject=${subject}&body=${body}`;
-
-        // Open default email client
-        window.location.href = mailtoLink;
-
-        // Reset form
-        this.reset();
-      });
+          alert('Submitted!');
+          form.reset();
+        });
 
       // Contact Form Submission
       document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -1368,6 +1494,47 @@ gap: 2rem;
 
         // Reset form
         this.reset();
+      });
+
+      // Add hover effects to all cards
+      document.querySelectorAll('.hover-scale').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.03)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
+
+      // Add scroll animation to sections
+      const sections = document.querySelectorAll('.section');
+      const options = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, options);
+
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+      });
+
+      // Add parallax effect to hero section
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
       });
     });
   </script>
