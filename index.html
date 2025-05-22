@@ -330,17 +330,6 @@ line-height: 1.7;
 flex: 1;
 }
 
-.founder-img {
-width: 180px;
-height: 180px;
-border-radius: 50%;
-object-fit: cover;
-margin: 0 auto 1.5rem;
-display: block;
-border: 5px solid white;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
 /* Card Styles */
 .card {
 border-radius: var(--border-radius);
@@ -1183,6 +1172,16 @@ transition: var(--transition);
 background-color: var(--primary-color);
 transform: scale(1.2);
 }
+
+/* Hide "View Archives" button on card flip */
+.card.flipped .view-gallery {
+    display: none;
+}
+
+/* Style for "See in Action" button */
+.see-in-action {
+    margin-top: 1rem;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1368,7 +1367,6 @@ transform: scale(1.2);
 </div>
 </div>
 </div>
-<img src="https://s.yimg.com/ny/api/res/1.2/D2hDCWb78NeZ8ovAR_mSbQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYzOQ--/https://media.zenfs.com/en/ny_post_articles_869/12f72bbc1bac926a0a95278de65db77f" alt="Joshua Small" class="founder-img">
 <h3>Joshua Small</h3>
 <span class="title">Culinary Director &amp; Co-Founder/Organizer</span>
 <p>Josh is a 16-year-old young chef and entrepreneur. With a passion for international cuisine, he's focused on creating trendy yet approachable dining experiences that blend high-end techniques as well as local ingredients. Josh has been fundraising for over 4 years. Out of the kitchen, Josh is an avid runner and is half French. He's also an avid mixologist. He goes to school at the Lycée Français de New York and spends his time between NYC and the Catskills.</p>
@@ -1378,6 +1376,7 @@ transform: scale(1.2);
 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 </div>
+<button class="btn btn-outline see-in-action">See in Action</button>
 </div>
 <div class="founder-card hover-scale">
 <h3>What is Y4Y?</h3>
@@ -1413,7 +1412,6 @@ transform: scale(1.2);
 </div>
 </div>
 </div>
-<img src="https://i.imgur.com/jPgmzwC.png" alt="Alexander Morris" class="founder-img">
 <h3>Alexander Morris</h3>
 <span class="title">Hospitality Director &amp; Co-Founder/Organizer</span>
 <p>Alexander is a dynamic 16-year-old youth event organizer and planner, with a passion for hospitality and crafting memorable and inclusive experiences. He has previously volunteered and served on the Youth Advisory Boards of various non-profits including the Ronald McDonald House New York and the Billion Oyster Project. He currently attends Léman Prep High School and is fluent in French and Spanish, as well as on the Varsity Basketball and Tennis teams.</p>
@@ -1423,6 +1421,7 @@ transform: scale(1.2);
 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 </div>
+<button class="btn btn-outline see-in-action">See in Action</button>
 </div>
 </div>
 </div>
@@ -1572,6 +1571,7 @@ transform: scale(1.2);
       const viewButtons = document.querySelectorAll('.view-gallery');
       const flipBackButtons = document.querySelectorAll('.flip-back-btn');
       const allCards = document.querySelectorAll('.card');
+      const seeInActionButtons = document.querySelectorAll('.see-in-action');
 
       // Add click event to each view button
       viewButtons.forEach(button => {
@@ -1587,6 +1587,15 @@ transform: scale(1.2);
         button.addEventListener('click', function() {
           const card = this.closest('.card');
           card.classList.remove('flipped');
+        });
+      });
+
+      // Add click event to each "See in Action" button
+      seeInActionButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const card = this.closest('.card');
+          card.classList.add('flipped');
         });
       });
 
