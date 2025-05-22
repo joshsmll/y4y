@@ -1326,7 +1326,7 @@ border-radius: 2px;
 </div>
 </div>
 </div>
-<form class="contact-form" id="contact-form">
+<form class="contact-form" action="https://formspree.io/f/xdkgvzjo" method="POST">
     <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
@@ -1476,24 +1476,6 @@ border-radius: 2px;
           form.reset();
         });
 
-      // Contact Form Submission
-<!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/xdkgvzjo"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-
       // Add hover effects to all cards
       document.querySelectorAll('.hover-scale').forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -1538,5 +1520,6 @@ border-radius: 2px;
   </script>
 </body>
 </html>
+
 
 
