@@ -1344,6 +1344,7 @@ border-radius: 2px;
         <textarea id="message" name="message" class="form-control" placeholder="Enter your message" required></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Send Message</button>
+    <p id="response"></p>
 </form>
 
 </div>
@@ -1475,30 +1476,27 @@ border-radius: 2px;
           form.reset();
         });
 
-     //API SHEETS FOR CONTACT FORM
-  <script>
-  const form = document.getElementById('AKfycbwk7DEx205eZvsDX071QAnMzHDmKk1hC31FdPtbvhYuvFdvV7bagPNgfPNp1aY4lX_iOw');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+      // Contact Form Submission
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    const formData = new FormData(form);
-    const url = 'https://script.google.com/macros/s/AKfycbwk7DEx205eZvsDX071QAnMzHDmKk1hC31FdPtbvhYuvFdvV7bagPNgfPNp1aY4lX_iOw/exec';
+        const formData = new FormData(this);
+        const url = 'https://script.google.com/macros/s/AKfycbwk7DEx205eZvsDX071QAnMzHDmKk1hC31FdPtbvhYuvFdvV7bagPNgfPNp1aY4lX_iOw/exec';
 
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-    .then(response => response.text())
-    .then(result => {
-      document.getElementById('response').innerText = 'Form submitted successfully!';
-      form.reset();
-    })
-    .catch(error => {
-      document.getElementById('response').innerText = 'Error submitting form.';
-      console.error('Error:', error);
-    });
-  });
-</script>
+        fetch(url, {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => response.text())
+        .then(result => {
+          document.getElementById('response').innerText = 'Form submitted successfully!';
+          document.getElementById('contact-form').reset();
+        })
+        .catch(error => {
+          document.getElementById('response').innerText = 'Error submitting form.';
+          console.error('Error:', error);
+        });
+      });
 
       // Add hover effects to all cards
       document.querySelectorAll('.hover-scale').forEach(card => {
@@ -1544,4 +1542,5 @@ border-radius: 2px;
   </script>
 </body>
 </html>
+
 
