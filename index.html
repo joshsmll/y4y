@@ -1476,24 +1476,29 @@ border-radius: 2px;
         });
 
      //API SHEETS FOR CONTACT FORM
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const form = e.target;
+  <script>
+  const form = document.getElementById('AKfycbwk7DEx205eZvsDX071QAnMzHDmKk1hC31FdPtbvhYuvFdvV7bagPNgfPNp1aY4lX_iOw');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-  const formData = new FormData(form);
+    const formData = new FormData(form);
+    const url = 'https://script.google.com/macros/s/AKfycbwk7DEx205eZvsDX071QAnMzHDmKk1hC31FdPtbvhYuvFdvV7bagPNgfPNp1aY4lX_iOw/exec';
 
-  fetch(
-    'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
-    {
+    fetch(url, {
       method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    }
-  );
-
-  alert('Submitted!');
-  form.reset();
-});
+      body: formData,
+    })
+    .then(response => response.text())
+    .then(result => {
+      document.getElementById('response').innerText = 'Form submitted successfully!';
+      form.reset();
+    })
+    .catch(error => {
+      document.getElementById('response').innerText = 'Error submitting form.';
+      console.error('Error:', error);
+    });
+  });
+</script>
 
       // Add hover effects to all cards
       document.querySelectorAll('.hover-scale').forEach(card => {
