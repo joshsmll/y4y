@@ -1477,35 +1477,22 @@ border-radius: 2px;
         });
 
       // Contact Form Submission
-<script>
-      document
-        .getElementById('contact-form')
-        .addEventListener('submit', function (e) {
-          e.preventDefault();
-          const form = e.target;
-          const data = {
-            name: form.name.value,
-            email: form.email.value,
-            subject: form.subject.value,
-            message: form.message.value 
-          };
-
-          fetch(
-            'https://script.google.com/macros/s/AKfycbw00AlLzay_PmxJHMuxWmVL_fnBDAgSjN2esgbFITw_YJ30v4ofYh1fyqT2a2xOt-Vi/exec',
-            {
-              method: 'POST',
-              mode: 'no-cors',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data)
-            }
-          );
-
-          alert('Submitted!');
-          form.reset();
-        });
-    </script>
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/xdkgvzjo"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
 
       // Add hover effects to all cards
       document.querySelectorAll('.hover-scale').forEach(card => {
