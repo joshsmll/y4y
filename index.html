@@ -1476,32 +1476,31 @@ border-radius: 2px;
         });
 
       // Contact Form Submission
-      // Contact Form Submission
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    subject: form.subject.value,
-    message: form.message.value
-  };
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+          name: form.name.value,
+          email: form.email.value,
+          subject: form.subject.value,
+          message: form.message.value
+        };
 
-  fetch(
-    'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
-    {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }
-  );
+        fetch(
+          'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
+          {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          }
+        );
 
-  alert('Submitted!');
-  form.reset();
-});
+        alert('Submitted!');
+        form.reset();
+      });
 
       // Add hover effects to all cards
       document.querySelectorAll('.hover-scale').forEach(card => {
