@@ -1208,7 +1208,7 @@ gap: 2rem;
 </div>
 </div>
 </div>
-<form class="contact-form" action="send_email.php" method="POST">
+<form class="contact-form" id="contact-form">
     <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
@@ -1341,6 +1341,27 @@ gap: 2rem;
         const subject = encodeURIComponent('Mailing List Subscription');
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nI would like to subscribe to the Youth 4 Youth mailing list.`);
         const mailtoLink = `mailto:founders@y4ynyc.com?subject=${subject}&body=${body}`;
+
+        // Open default email client
+        window.location.href = mailtoLink;
+
+        // Reset form
+        this.reset();
+      });
+
+      // Contact Form Submission
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Create mailto link
+        const mailSubject = encodeURIComponent(`Contact Form Submission: ${subject}`);
+        const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        const mailtoLink = `mailto:founders@y4ynyc.com?subject=${mailSubject}&body=${mailBody}`;
 
         // Open default email client
         window.location.href = mailtoLink;
