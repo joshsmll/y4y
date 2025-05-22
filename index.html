@@ -1476,15 +1476,11 @@ border-radius: 2px;
         });
 
      //API SHEETS FOR CONTACT FORM
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
   e.preventDefault();
   const form = e.target;
 
-  const formData = new FormData();
-  formData.append('name', form.name.value);
-  formData.append('email', form.email.value);
-  formData.append('subject', form.subject.value);
-  formData.append('message', form.message.value);
+  const formData = new FormData(form);
 
   fetch(
     'https://script.google.com/macros/s/AKfycbxy866_tNQ3wfKfiyHIf2Q8zj0GQWYsdlRIspqcRi3sprnEdmmHCNSDu8LcsPMqHzhIuQ/exec',
@@ -1498,7 +1494,6 @@ border-radius: 2px;
   alert('Submitted!');
   form.reset();
 });
-
 
       // Add hover effects to all cards
       document.querySelectorAll('.hover-scale').forEach(card => {
